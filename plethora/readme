@@ -1,0 +1,42 @@
+Plethora Team:
+
+Attached is my solution to the Plethora Technical Exercise. Compiling
+the code requires the jsoncpp-master library for parsing the json profile
+files. The jsoncpp-master library is found here:
+
+github.com/open-source-parsers/jsoncpp
+
+To compile the code at the command line, perform these steps
+
+g++ -c Vertex.cpp
+g++ -c Edge.cpp
+g++ -c -I/home/janedoe/json/jsoncpp-master/include main.cpp
+g++ -o main main.o /home/janedoe/json/jsoncpp-master/build/debug/lib/libjsoncpp.a ./Vertex.o ./Edge.o
+
+where /home/janedoe... is replaced with the proper path of jsoncpp-master.
+Once compiled, the executable is "main", and the program is executed
+by typing, e.g., "main Rectangle.json".
+
+Alternative, use the CMakeLists.txt file to compile using cmake as follows:
+
+cmake .
+make
+
+Note: Be sure to change the JSON_PARSER variable in CMakeLists.txt
+to point to your local directory that contains jsoncpp-master.
+
+If more time were available, I would focus on the following:
+- code testing with more complex profiles
+- add robustness to the code and fail gracefully when appropriate, e.g.,
+  make sure pointers aren't null, use smart pointers, exceptions,...
+
+If questions arise, please contact me.
+
+Thank you.
+
+Mike Singer
+msinger2006@gmail.com
+August 2016
+(c) 2016 MASinger
+
+
